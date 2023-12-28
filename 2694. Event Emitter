@@ -1,0 +1,95 @@
+// // class EventEmitter {
+
+// //      callback = []
+// //     subscribe(event, cb) {
+// //         this.callback[event] = this.callback[event]||[]
+// //         this.callback[event].push(cb)
+// //         return {
+// //             unsubscribe: () => {
+// //                 if(this.callback[event].length>1)
+// //                     this.callback[event].shift();
+// //                 else
+// //                     delete this.callback[event]
+// //             }
+// //         };
+// //     }
+
+// //     emit(event, args = []) {
+// //         if(this.callback[event])
+// //             return this.callback[event].map((cb)=>cb(...args));
+// //         return []
+// //     }
+// // }
+// class EventEmitter {
+
+//      callback = []
+//     subscribe(event, cb) {
+//         this.callback[event] = this.callback[event]||[]
+//         this.callback[event].push(cb)
+//         return {
+//             unsubscribe: () => {
+//                 if(this.callback[event] && this.callback[event].length>1)
+//                     this.callback[event].shift();
+//                 else
+//                     delete this.callback[event]
+//             }
+//         };
+//     }
+
+//     emit(event, args = []) {
+//         if(this.callback[event])
+//             return this.callback[event].map((cb)=>cb(...args));
+//         return []
+//     }
+// }
+
+
+// class EventEmitter {
+
+//      callback = []
+//     subscribe(event, cb) {
+//         this.callback[event] = this.callback[event]||[]
+//         this.callback[event].push(cb)
+//         return {
+//             unsubscribe: () => {
+//                 if(this.callback[event].length>1)
+//                     this.callback[event].shift();
+//                 else
+//                     delete this.callback[event]
+//             }
+//         };
+//     }
+
+//     emit(event, args = []) {
+//         if(this.callback[event])
+//             return this.callback[event].map((cb)=>cb(...args));
+//         return []
+//     }
+// }
+class EventEmitter {
+
+     callback = []a
+    subscribe(event, cb) {
+        this.callback[event] = this.callback[event]||[]
+        this.callback[event].push(cb)
+        return {
+            unsubscribe: () => 
+         //   {
+//                 if(this.callback[event].length>1)
+//                     this.callback[event].shift();
+//                 else
+//                     delete this.callback[event]
+//             }
+            {
+                this.callback[event]=this.callback[event].filter(fn => fn !== cb);
+            }
+        }
+        }
+    emit(event, args = []) {
+        if(this.callback[event])
+            return this.callback[event].map((cb)=>cb(...args));
+        return []
+    }
+}
+
+
